@@ -29,8 +29,8 @@ def divisors_num_of target
     end
   end
   i = 5
-  upper = Math.sqrt(target).ceil
-  until target == 1 || i >= upper
+  upper = Math.sqrt(target).floor
+  until target == 1 || i > upper
     if target%i == 0
       res[i.to_s.to_sym] = 1
       target /= i
