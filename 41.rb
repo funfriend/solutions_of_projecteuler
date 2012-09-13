@@ -48,7 +48,3 @@ p res
 =begin
 TODO:全排列实现
 =end
-# def permutation_of(a)
-#   a.sort!
-
-# end
