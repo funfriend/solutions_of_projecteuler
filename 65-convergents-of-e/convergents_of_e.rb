@@ -1,5 +1,17 @@
 # !/bin/sh ruby
 
+## use recurrence relations,
+## see http://mathworld.wolfram.com/ContinuedFraction.html for details.
+def convergents(cf)
+  p, q = 0, 1
+  pp, qq = 1, 0
+  cf.map { |e|
+    p, pp = pp, e * pp + p
+    q, qq = qq, e * qq + q
+    Rational(pp, qq)
+  }
+end
+
 # continued fraction of e
 cfe = (0..98).map { |i|
   q, r = (i+2).divmod(3)
@@ -10,11 +22,10 @@ cfe = (0..98).map { |i|
   end
 }.unshift(2)
 
-a100 = cfe.pop
-hundredth = cfe.reverse_each.inject(Rational(1, a100)) { |mem, var| var + 1/mem }
 
+cs = convergents(cfe)
 
-numerator = hundredth.numerator
+numerator = cs[99].numerator
 sum = 0
 while numerator != 0
   sum += numerator%10
