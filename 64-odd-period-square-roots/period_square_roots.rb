@@ -1,25 +1,22 @@
 # !/bin/sh ruby
 
-
+## compute the periodic continued fractions of square root of a integer
+## provide the integer, output the fractions
+## use the method provided at
+## http://en.wikipedia.org/wiki/Methods_of_computing_square_roots#Continued_fraction_expansion
 def continued_fraction(n)
   a0 = Math.sqrt(n).floor
   cf = [a0]
 
-  q = s = 1
-  p = t = a0
-
+  m = 0
+  d = 1
   loop do
-    tq = (n - p**2)/q
-    tp = tq - p%tq
-
-    # add this hack ...
-    tp = tp + ((a0 - tp)/tq)*tq
-    #
-
-    a = (p + tp)/tq
+    m = d * cf.last - m
+    d = (n - m**2)/d
+    a = (a0 + m)/d
     cf << a
-    p, q = tp, tq
-    break if p == t && q == s
+
+    break if a == 2 * a0
   end
 
   cf
