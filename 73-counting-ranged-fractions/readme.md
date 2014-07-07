@@ -5,3 +5,8 @@ start from the two fractions and generate mediants until the denominator exceeds
 In a whole, it generates and traverses a binary tree whose deepth is the limited `d`.
 
 The code is rather straightforward, as *the function is recursive*.
+
+## Update
+
+I have rewritten the code to non-recursive version.
+However, it doesn't gain some efficiency... strangeee

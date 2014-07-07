@@ -1,12 +1,23 @@
 def ranged_fractions(from, to, limit)
-  n = from.numerator + to.numerator
-  d = from.denominator + to.denominator
-  mediant = Rational(n, d)
+  queue = Array.new
+  count = 0
 
-  return 0 if d > limit
+  # seed the queue
+  mediant = Rational(from.numerator + to.numerator, from.denominator + to.denominator)
+  queue.push [from, mediant, to]
 
-  1 + ranged_fractions(from, mediant, limit) +
-      ranged_fractions(mediant, to, limit)
+  until queue.empty?
+    l, m, r = queue.shift # pop the queue
+    unless m.denominator > limit
+      count += 1
+      # push the child to queue
+      right_mediant = Rational(r.numerator + m.numerator, r.denominator + m.denominator)
+      left_mediant  = Rational(l.numerator + m.numerator, l.denominator + m.denominator)
+      queue.push [m, right_mediant, r], [l, left_mediant, m]
+    end
+  end
+
+  count
 end
 
 a = Rational(1, 3)
