@@ -1,12 +1,12 @@
-def ranged_fractions(open, close, limit)
-  n = open.numerator + close.numerator
-  d = open.denominator + close.denominator
+def ranged_fractions(from, to, limit)
+  n = from.numerator + to.numerator
+  d = from.denominator + to.denominator
   mediant = Rational(n, d)
 
   return 0 if d > limit
 
-  1 + ranged_fractions(open, mediant, limit) +
-      ranged_fractions(mediant, close, limit)
+  1 + ranged_fractions(from, mediant, limit) +
+      ranged_fractions(mediant, to, limit)
 end
 
 a = Rational(1, 3)
