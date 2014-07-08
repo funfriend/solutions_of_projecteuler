@@ -10,3 +10,6 @@ The code is rather straightforward, as *the function is recursive*.
 
 I have rewritten the code to non-recursive version.
 However, it doesn't gain some efficiency... strangeee
+
+Also, add another solution which borrowed from
+[math blog](http://www.mathblog.dk/project-euler-73-sorted-reduced-proper-fractions/)
