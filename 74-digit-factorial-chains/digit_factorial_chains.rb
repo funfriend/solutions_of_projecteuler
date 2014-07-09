@@ -21,17 +21,19 @@ length_of_chains_with_cache = lambda {
 
   lambda do |n, iter|
     t = n
-    length = 0
+    chain = []
     until cache[t]
-      length += 1
+      chain << t
 
       prev = t
       t = iter.call(prev)
       # meets a number like 145, and 1, 2
       cache[t] = 1 if t == prev
     end
-    # update the cache and return it
-    cache[n] = length + cache[t]
+    # update the cache of elems in the chain
+    chain.each_with_index { |e, i| cache[e] = (chain.length - i) + cache[t] }
+    # return elem in cache
+    cache[n]
   end
 }.call
 
