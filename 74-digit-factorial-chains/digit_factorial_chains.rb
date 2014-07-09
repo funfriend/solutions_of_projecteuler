@@ -11,12 +11,29 @@ next_number = lambda do |n|
   next_elem
 end
 
-def length_of_chains(n, iter)
-  s = Set.new
-  while s.add?(n)
-    n = iter.call(n)
-  end
-  s.length
-end
+length_of_chains_with_cache = lambda {
+  cache = Hash.new
 
-puts (1..100_0000).count { |i| length_of_chains(i, next_number) == 60 }
+  # seed
+  cache[169] = cache[363601] = cache[1454] = 3
+  cache[871] = cache[45361] = 2
+  cache[872] = cache[45362] = 2
+
+  lambda do |n, iter|
+    t = n
+    length = 0
+    until cache[t]
+      length += 1
+
+      prev = t
+      t = iter.call(prev)
+      # meets a number like 145, and 1, 2
+      cache[t] = 1 if t == prev
+    end
+    # update the cache and return it
+    cache[n] = length + cache[t]
+  end
+}.call
+
+
+puts (1..100_0000).count { |i| length_of_chains_with_cache.call(i, next_number) == 60 }
