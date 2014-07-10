@@ -16,6 +16,6 @@ In order to get all Pythagorean triples, multiply primitive Pythagorean triple b
 
 I have transformed the code using
 [Tree of primitive Pythagorean triples](https://en.wikipedia.org/wiki/Tree_of_primitive_Pythagorean_triples)
-to generate primitive Pythagorean triples instead of original `gcd(m,n)` and `(m-n).odd?` test.
+instead of original `gcd(m,n)` and `(m-n).odd?` test to generate primitive Pythagorean triples.
 
 However, the method seems to be slower, because of the frequent queue operation.
