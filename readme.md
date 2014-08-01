@@ -1,13 +1,15 @@
 ## Intro
 
-This repo records my solutions of math problems in [The Project Euler](http://projecteuler.net/). Any contributions are welcomed.
+The repo contains my solutions of math problems in [The Project Euler](http://projecteuler.net/).
 
-## Some Other Things
+Corresponding to one question, each folder includes the solutions and a readme file providing some tips about the solution.
+Most of the codes are written by ruby.
 
-*Ruby* is my preferred language when solving problems like this. But Considering that I'm learning *Scala*, I will also write some *Scala* codes now and then.
+Any suggestions are welcomed!
 
-## TODO
+## still-working-on Questions
 
-1. classify these questions.
-2. write some articles about how to work it out.
+1. [82 path sum: three ways](http://projecteuler.net/problem=83)
 
+   There is a short solution in the repo. But I just cannot figure out how it works.
+   Some help is needed here!
