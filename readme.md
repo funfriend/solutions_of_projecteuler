@@ -7,9 +7,9 @@ Most of the codes are written by ruby.
 
 Any suggestions are welcomed!
 
-## still-working-on Questions
+## Still Working On!
 
-1. [82 path sum: three ways](http://projecteuler.net/problem=83)
+1. [82 path sum: three ways](http://projecteuler.net/problem=82)
 
    There is a short solution in the repo. But I just cannot figure out how it works.
    Some help is needed here!
