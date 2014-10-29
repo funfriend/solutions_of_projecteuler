@@ -11,24 +11,19 @@ def can_be_pairs?(p, ps)
 end
 
 if __FILE__ == $0
-  prime_pairs = Array.new
+  prime_pairs = [[], [], [], [], []]
   prime_enumerator = Prime.lazy
-  catch :found do
-    loop do
-      prime = prime_enumerator.next
-      p prime
-      prime_pairs.each do |ps|
-        if can_be_pairs?(prime, ps)
-          ps << prime
 
-          if ps.length == 5
-            puts ps
-            throw :found
-          end
-        end
-      end
-      prime_pairs << [prime]
-      p prime_pairs
+  Prime.lazy.take_while { |p| prime_pairs.last.empty? }.each do |prime|
+    p prime
+    upgrades = prime_pairs[0...-1].map do |pairs|
+      pairs.select { |ps| can_be_pairs?(prime, ps) }.map { |ps| ps + [prime] }
     end
+
+    prime_pairs.first << [prime]
+    prime_pairs.drop(1).zip(upgrades) { |ps, added| ps.push(*added) }
+    p prime_pairs.map(&:length)
   end
+
+  puts prime_pairs.last
 end
