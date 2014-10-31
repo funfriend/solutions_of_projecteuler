@@ -13,3 +13,7 @@ Any suggestions are welcomed!
 
    There is a short solution in the repo. But I just cannot figure out how it works.
    Some help is needed here!
+
+2. [88: product-sum numbers](https://projecteuler.net/problem=88)
+
+   [A104173(n)](https://oeis.org/A104173) involved.
